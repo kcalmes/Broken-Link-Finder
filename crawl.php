@@ -1,7 +1,7 @@
 <?php
 include "url_functions.php";
 ini_set("memory_limit","512M");
-define("SYS_ADMIN_EMAIL_ADDRESS", "kory_calmes@byu.edu");
+define("SYS_ADMIN_EMAIL_ADDRESS", "email@domain");
 
 
 if(!isset($argv[1]) || !isset($argv[2])){
@@ -40,7 +40,7 @@ $redundancyCounter = 0;
  * links to exclude from being search or reported
  * here they will be added to the visited list
  */
-$exclude = fopen("/var/www/html/php/exclude.txt", "r");
+$exclude = fopen("./exclude.txt", "r");
 while (!feof($exclude)){
 	$visited[trim(fgets($exclude))] = true;
 }
