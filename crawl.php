@@ -19,7 +19,7 @@ $temp = parse_url($url);
 		$url .= "/";
 
 //this is the host that will be used to restrict the search to the current scope
-$globalHost = $temp['host'];
+$global_host = $temp['host'];
 
 //this counter will help us keep track of our location in the stack
 $stackPointer = 0;
@@ -62,7 +62,7 @@ while($url = $stack[--$stackPointer]['child']) {
 		//The url is added to the success array
 		$success[] = $url;
 		//If the URL is not in scope, dont get the links off of the page
-		if($globalHost != $parsedUrl['host'])
+		if($global_host != $parsedUrl['host'])
 			continue;
 		$links = get_page_links($url);
 
@@ -90,7 +90,7 @@ while($url = $stack[--$stackPointer]['child']) {
 			}
 		} else {
 			$redundancyCounter = 0;
-			if(!isset($parsedUrl['host']) && $globalHost != $parsedUrl['host'])
+			if(!isset($parsedUrl['host']) && $global_host != $parsedUrl['host'])
 				continue;
 			$error[$parentUrl][] = $url;
 		}
@@ -106,7 +106,7 @@ print "\nSending emails!";
 foreach($emails as $email_address) {
 	print "\nSending to: $email_address";
 	$from = "From: System Admin<".SYS_ADMIN_EMAIL_ADDRESS.">";
-	send_report($email_address, $errors, $from);
+	send_report($email_address, $global_host, $errors, $from);
 }
 print "\nDone!\n";
 ?>
