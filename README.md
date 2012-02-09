@@ -3,7 +3,7 @@ Installation
 
 Unix Based
 ----------
-Navigate into the directory of your choice and use the git clone command with the read only http address.
+Navigate into the directory of your choice and use the git clone command with the read only git address.
 
 I put mine in a utilities directory so I use the following commands in sequence.
 
