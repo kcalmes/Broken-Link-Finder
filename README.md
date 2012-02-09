@@ -1,8 +1,6 @@
 Installation
 ============
 
-Note: You will want to put the google analytics
-
 Unix Based
 ----------
 Navigate into the directory of your choice and use the git clone command with the read only http address.
